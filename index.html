@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Valentine ❤️</title>
+
+<style>
+
+/* RESET */
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#5b0b15;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:15px;
+}
+
+/* CARD */
+.card{
+    width:100%;
+    max-width:380px;
+    background:#fff;
+    border-radius:20px;
+    padding:25px 20px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* TEXT */
+h1,h2{color:#c2185b;margin:10px 0;}
+p{font-size:14px;color:#666;line-height:1.5;}
+
+/* IMAGE */
+img{
+    width:120px;
+    max-width:100%;
+    height:auto;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    border:none;
+    padding:14px;
+    border-radius:30px;
+    margin-top:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.pink{background:#ff3f7f;color:white;}
+.white{background:#eee;color:#333;}
+
+/* SCREEN CONTROL */
+.screen{display:none;}
+.active{display:block;}
+
+/* LOVE SECTION */
+.love-container{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin:15px 0;
+}
+
+.flower img{
+    width:140px;
+    border-radius:10px;
+}
+
+.languages{
+    flex:1;
+    min-width:180px;
+}
+
+.lang{
+    background:#ffe6ec;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:8px;
+}
+
+.lang small{
+    font-size:10px;
+    color:#999;
+}
+
+.lang p{
+    margin:2px 0 0;
+    color:#c2185b;
+    font-weight:600;
+}
+
+/* ANIMATIONS */
+.fadeLeft{animation:fadeLeft 1.2s ease forwards;}
+.fadeRight{opacity:0;animation:fadeRight 1s ease forwards;}
+.fadeTop{animation:fadeTop 1s ease forwards;}
+
+.delay1{animation-delay:.3s;}
+.delay2{animation-delay:.6s;}
+.delay3{animation-delay:.9s;}
+.delay4{animation-delay:1.2s;}
+.delay5{animation-delay:1.5s;}
+
+@keyframes fadeLeft{
+    from{opacity:0;transform:translateX(-40px);}
+    to{opacity:1;transform:translateX(0);}
+}
+@keyframes fadeRight{
+    from{opacity:0;transform:translateX(40px);}
+    to{opacity:1;transform:translateX(0);}
+}
+@keyframes fadeTop{
+    from{opacity:0;transform:translateY(-20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* MOBILE */
+@media(max-width:400px){
+    h1{font-size:22px;}
+    button{font-size:15px;padding:12px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="tenor-gif-embed" data-postid="13806497" data-share-method="host" data-aspect-ratio="1.23333" data-width="100%"><a href="https://tenor.com/view/peachcat-cat-cats-kittens-kitties-gif-13806497">Peachcat Cats Sticker</a>from <a href="https://tenor.com/search/peachcat-stickers">Peachcat Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    <h1>Hey!</h1>
+    <p>I want to ask you something...</p>
+    <button class="pink" onclick="next('s3')">YES 💖</button>
+    <button class="white" onclick="next('s2')">NO 😢</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="card screen" id="s2">
+    <img src="https://i.imgur.com/3Xj4.gif">
+    <h1>How Dare You!</h1>
+    <p>I will go back to say YES!</p>
+    <button class="pink" onclick="next('s1')">Go Back</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="card screen" id="s3">
+    <img src="https://i.imgur.com/2RMhx.gif">
+    <h1>Good My Cutiepie 😍</h1>
+    <p>Most important question, are you ready?</p>
+    <button class="pink" onclick="next('s4')">Yes!!</button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="card screen" id="s4">
+    <img src="https://i.imgur.com/6RMhx.gif">
+    <h1>Will you be my Valentine? ❤️</h1>
+    <button class="pink" onclick="next('s5')">Yes</button>
+    <button class="pink" onclick="next('s5')">Of course</button>
+    <button class="pink" onclick="next('s5')">Always</button>
+</div>
+
+<!-- SCREEN 5 (FLOWER + LANGUAGES) -->
+<div class="card screen" id="s5">
+
+    <h2 class="fadeTop">This is for you 😍😁</h2>
+
+    <div class="love-container">
+
+        <div class="flower fadeLeft">
+            <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d">
+        </div>
+
+        <div class="languages">
+            <div class="lang fadeRight delay1">
+                <small>ENGLISH</small>
+                <p>I Love You</p>
+            </div>
+
+            <div class="lang fadeRight delay2">
+                <small>URDU</small>
+                <p>میں تم سے پیار کرتا ہوں</p>
+            </div>
+
+            <div class="lang fadeRight delay3">
+                <small>HINDI</small>
+                <p>मैं तुमसे प्यार करता हूँ</p>
+            </div>
+
+            <div class="lang fadeRight delay4">
+                <small>FRENCH</small>
+                <p>Je T'aime</p>
+            </div>
+
+            <div class="lang fadeRight delay5">
+                <small>SPANISH</small>
+                <p>Te Amo</p>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="pink" onclick="next('s6')">
+        A Letter For You ❤️
+    </button>
+
+</div>
+
+<!-- SCREEN 6 -->
+<div class="card screen" id="s6">
+    <h2>My Dearest Valentine ❤️</h2>
+    <p>
+        From the moment you walked into my life,
+        everything became more beautiful.
+        Your smile lights up my darkest days,
+        and your love makes me the happiest person alive.
+    </p>
+    <p>
+        I promise to cherish you, make you laugh,
+        and love you more every single day.
+    </p>
+    <h3 style="color:#c2185b;">Forever Yours ❤️</h3>
+</div>
+
+<script>
+function next(id){
+    document.querySelectorAll(".screen")
+    .forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
