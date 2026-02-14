@@ -19,6 +19,7 @@ body{
     align-items:center;
     min-height:100vh;
     padding:15px;
+    overflow-x:hidden;
 }
 
 /* CARD */
@@ -30,6 +31,8 @@ body{
     padding:25px 20px;
     text-align:center;
     box-shadow:0 15px 40px rgba(0,0,0,0.3);
+    position:relative;
+    z-index:2;
 }
 
 /* TEXT */
@@ -99,6 +102,52 @@ button{
     font-weight:600;
 }
 
+/* YES NO AREA */
+.btn-area{
+    position:relative;
+    height:120px;
+}
+
+#noBtn{
+    position:absolute;
+    left:0;
+    top:60px;
+    width:100%;
+    transition:0.2s ease;
+}
+
+/* MUSIC BUTTON */
+#musicBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#ff3f7f;
+    color:white;
+    border:none;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:999;
+}
+
+/* FLOATING HEARTS */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:18px;
+    animation:floatHeart 6s linear infinite;
+    opacity:0.8;
+    z-index:1;
+}
+
+@keyframes floatHeart{
+    0%{transform:translateY(0) scale(1);opacity:1;}
+    100%{transform:translateY(-110vh) scale(1.5);opacity:0;}
+}
+
 /* ANIMATIONS */
 .fadeLeft{animation:fadeLeft 1.2s ease forwards;}
 .fadeRight{opacity:0;animation:fadeRight 1s ease forwards;}
@@ -123,28 +172,23 @@ button{
     to{opacity:1;transform:translateY(0);}
 }
 
-/* MOBILE */
-@media(max-width:400px){
-    h1{font-size:22px;}
-    button{font-size:15px;padding:12px;}
-}
-
 </style>
 </head>
 
 <body>
 
 <!-- SCREEN 1 -->
-<div class="tenor-gif-embed" data-postid="13806497" data-share-method="host" data-aspect-ratio="1.23333" data-width="100%"><a href="https://tenor.com/view/peachcat-cat-cats-kittens-kitties-gif-13806497">Peachcat Cats Sticker</a>from <a href="https://tenor.com/search/peachcat-stickers">Peachcat Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+<div class="card screen active" id="s1">
+    <img src="peachcat-cat.gif">
     <h1>Hey!</h1>
-    <p>I want to ask you something...</p>
-    <button class="pink" onclick="next('s3')">YES 💖</button>
+    <p>Hello Sarika <br>I want to ask you something...</p>
+    <button class="pink" onclick="startMusic(); next('s3')">YES 💖</button>
     <button class="white" onclick="next('s2')">NO 😢</button>
 </div>
 
 <!-- SCREEN 2 -->
 <div class="card screen" id="s2">
-    <img src="https://i.imgur.com/3Xj4.gif">
+    <img src="how dare you.gif">
     <h1>How Dare You!</h1>
     <p>I will go back to say YES!</p>
     <button class="pink" onclick="next('s1')">Go Back</button>
@@ -152,7 +196,7 @@ button{
 
 <!-- SCREEN 3 -->
 <div class="card screen" id="s3">
-    <img src="https://i.imgur.com/2RMhx.gif">
+    <img src="Cute-3.gif">
     <h1>Good My Cutiepie 😍</h1>
     <p>Most important question, are you ready?</p>
     <button class="pink" onclick="next('s4')">Yes!!</button>
@@ -160,81 +204,121 @@ button{
 
 <!-- SCREEN 4 -->
 <div class="card screen" id="s4">
-    <img src="https://i.imgur.com/6RMhx.gif">
+    <img src="be-my-valentine-valentines-day.gif">
     <h1>Will you be my Valentine? ❤️</h1>
-    <button class="pink" onclick="next('s5')">Yes</button>
-    <button class="pink" onclick="next('s5')">Of course</button>
-    <button class="pink" onclick="next('s5')">Always</button>
+
+    <div class="btn-area">
+        <button class="pink" onclick="next('s5')">YES 💖</button>
+        <button class="white" id="noBtn">NO 😢</button>
+    </div>
 </div>
 
-<!-- SCREEN 5 (FLOWER + LANGUAGES) -->
+<!-- SCREEN 5 -->
 <div class="card screen" id="s5">
 
     <h2 class="fadeTop">This is for you 😍😁</h2>
 
     <div class="love-container">
-
         <div class="flower fadeLeft">
-            <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d">
+            <img src="rosa.gif">
         </div>
 
         <div class="languages">
             <div class="lang fadeRight delay1">
-                <small>ENGLISH</small>
-                <p>I Love You</p>
+                <small>ENGLISH</small><p>I Love You</p>
             </div>
-
             <div class="lang fadeRight delay2">
-                <small>URDU</small>
-                <p>میں تم سے پیار کرتا ہوں</p>
+                <small>URDU</small><p>میں تم سے پیار کرتا ہوں</p>
             </div>
-
             <div class="lang fadeRight delay3">
-                <small>HINDI</small>
-                <p>मैं तुमसे प्यार करता हूँ</p>
+                <small>HINDI</small><p>मैं तुमसे प्यार करता हूँ</p>
             </div>
-
             <div class="lang fadeRight delay4">
-                <small>FRENCH</small>
-                <p>Je T'aime</p>
+                <small>FRENCH</small><p>Je T'aime</p>
             </div>
-
             <div class="lang fadeRight delay5">
-                <small>SPANISH</small>
-                <p>Te Amo</p>
+                <small>SPANISH</small><p>Te Amo</p>
             </div>
         </div>
-
     </div>
 
-    <button class="pink" onclick="next('s6')">
-        A Letter For You ❤️
-    </button>
-
+    <button class="pink" onclick="next('s6')">A Letter For You ❤️</button>
 </div>
 
 <!-- SCREEN 6 -->
 <div class="card screen" id="s6">
-    <h2>My Dearest Valentine ❤️</h2>
+    <h2>Dearest Sarika ❤️</h2>
     <p>
-        From the moment you walked into my life,
-        everything became more beautiful.
-        Your smile lights up my darkest days,
-        and your love makes me the happiest person alive.
+       Loving you has been the most beautiful chapter of my life.
+       You make my world softer, warmer, and filled with little moments that mean everything to me.
     </p>
     <p>
-        I promise to cherish you, make you laugh,
-        and love you more every single day.
+       Your smile is my favorite sight, your voice my comfort, and your love my greatest blessing.
+       I promise to care for you, make you smile even on difficult days, and love you.
     </p>
     <h3 style="color:#c2185b;">Forever Yours ❤️</h3>
 </div>
 
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<button id="musicBtn">🔇</button>
+
 <script>
+
+/* SCREEN CHANGE */
 function next(id){
     document.querySelectorAll(".screen")
     .forEach(s=>s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
 }
+
+/* NO BUTTON MOVE */
+const noBtn = document.getElementById("noBtn");
+
+function moveNoButton(){
+    const area = noBtn.parentElement;
+    const maxX = area.clientWidth - noBtn.clientWidth;
+    const maxY = area.clientHeight - noBtn.clientHeight;
+
+    noBtn.style.left = Math.random()*maxX+"px";
+    noBtn.style.top = Math.random()*maxY+"px";
+}
+
+noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("touchstart", moveNoButton);
+
+/* MUSIC */
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+let musicStarted=false;
+
+function startMusic(){
+    if(!musicStarted){
+        music.play();
+        musicBtn.innerHTML="🔊";
+        musicStarted=true;
+    }
+}
+
+musicBtn.addEventListener("click",()=>{
+    music.muted=!music.muted;
+    musicBtn.innerHTML = music.muted ? "🔇":"🔊";
+});
+
+/* HEARTS */
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(12+Math.random()*18)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+},500);
+
 </script>
 
 </body>
